@@ -1,0 +1,243 @@
+/* ============================================
+   RESET Y ESTILOS BASE
+   ============================================ */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+body { 
+  background-color: #2A2A30; /* Gris muy oscuro */
+  color: #F0F4F8; /* Blanco frío para textos generales */
+  font-family: 'Helvetica Neue', Arial, sans-serif; 
+  line-height: 1.6; 
+}
+
+/* ============================================
+   MENÚ
+   ============================================ */
+.menu { 
+  position: fixed; top: 0; width: 100%; 
+  background-color: rgba(42, 42, 48, 0.95); 
+  display: flex; justify-content: space-between; align-items: center; 
+  padding: 20px 40px; z-index: 100; backdrop-filter: blur(8px); 
+}
+.logo { display: flex; align-items: center; text-decoration: none; color: #F0F4F8; font-size: 1.2rem; font-weight: bold; letter-spacing: 2px; }
+.logo img { height: 50px; width: auto; display: block; }
+.menu-lista { display: flex; list-style: none; gap: 25px; align-items: center; }
+.menu-lista a { color: #F0F4F8; text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease; }
+.menu-lista a:hover { color: #B8B8C0; } /* Hover en gris frío */
+
+/* ============================================
+   DROPDOWN (Servicios)
+   ============================================ */
+.dropdown { position: relative; }
+.submenu { 
+  position: absolute; top: 100%; left: 0; 
+  background-color: #3A3A40; 
+  list-style: none; padding: 10px 0; min-width: 220px; 
+  opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; 
+  border-radius: 4px; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); z-index: 100; 
+}
+.dropdown:hover .submenu { opacity: 1; visibility: visible; }
+.submenu li a { display: block; padding: 10px 20px; font-size: 0.85rem; color: #F0F4F8; }
+.submenu li a:hover { background-color: #2A2A30; color: #B8B8C0; }
+
+/* ============================================
+   HERO (Portada)
+   ============================================ */
+.hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px; }
+.hero h1 { font-size: 2.8rem; margin-bottom: 15px; font-weight: 300; letter-spacing: 1px; color: #F0F4F8; }
+.hero p { color: #B8B8C0; font-size: 1.1rem; letter-spacing: 2px; }
+
+/* ============================================
+   FOTOS DEL INICIO
+   ============================================ */
+.inicio-fotos { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 40px; 
+  padding: 80px 40px; 
+}
+
+.inicio-fotos a { 
+  display: block; 
+  text-decoration: none; 
+  margin: 0 auto; 
+  width: 100%; 
+  max-width: 1000px; /* Un poco más angosto para que se vea más estético */
+}
+
+.inicio-fotos img { 
+  width: 100%; 
+  height: 500px; /* Altura fija para TODAS las imágenes */
+  object-fit: cover; /* Recorta la imagen para que llene el espacio sin deformarse */
+  object-position: center; /* Centra el recorte */
+  border-radius: 4px; 
+  opacity: 0; 
+  transform: translateY(60px); 
+  transition: opacity 1s ease, transform 1s ease; 
+  display: block; 
+}
+
+.inicio-fotos img.visible { 
+  opacity: 1; 
+  transform: translateY(0); 
+}
+
+.inicio-fotos a:hover img { 
+  transform: scale(1.02); 
+  transition: transform 0.4s ease; 
+}
+
+/* ============================================
+   CONTACTO
+   ============================================ */
+.contacto { padding: 80px 40px; text-align: center; background-color: #3A3A40; scroll-margin-top: 80px; }
+.contacto h2 { font-size: 2rem; color: #B8B8C0; margin-bottom: 20px; font-weight: 400; } /* Título en gris frío */
+.contacto h3 { margin-top: 40px; margin-bottom: 15px; color: #F0F4F8; font-weight: 400; }
+.contacto p { color: #B8B8C0; }
+.contacto iframe { border-radius: 4px; margin-top: 10px; max-width: 800px; display: block; margin-left: auto; margin-right: auto; }
+.boton-whatsapp, .boton-facebook { 
+  display: inline-block; margin-top: 10px; padding: 12px 30px; 
+  background-color: #B8B8C0; /* Botón en gris frío */
+  color: #2A2A30; /* Texto oscuro para que contraste con el botón claro */
+  text-decoration: none; border-radius: 4px; font-weight: bold;
+  transition: background-color 0.3s ease; 
+}
+.boton-whatsapp:hover, .boton-facebook:hover { background-color: #D0D0D8; } /* Hover más claro */
+
+/* ============================================
+   BOTÓN FLOTANTE WHATSAPP
+   ============================================ */
+.whatsapp-flotante { position: fixed; bottom: 25px; right: 25px; width: 55px; height: 55px; background-color: #25D366; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.5rem; text-decoration: none; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); z-index: 200; transition: transform 0.3s ease; }
+.whatsapp-flotante:hover { transform: scale(1.1); }
+
+/* ============================================
+   PÁGINAS INDEPENDIENTES (Servicios, Locaciones)
+   ============================================ */
+.pagina-completa { padding: 120px 40px 80px; min-height: 100vh; }
+.servicio-pagina { padding: 120px 40px 80px; min-height: 100vh; }
+.servicio-pagina h1 { font-size: 2.5rem; color: #B8B8C0; margin-bottom: 20px; font-weight: 400; } /* Título en gris frío */
+.info-servicio { max-width: 800px; margin-bottom: 40px; color: #B8B8C0; font-size: 1.05rem; line-height: 1.7; }
+.galeria-servicio { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.galeria-servicio img { width: 100%; height: 300px; object-fit: cover; border-radius: 4px; opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.galeria-servicio img.visible { opacity: 1; transform: translateY(0); }
+
+/* ============================================
+   LOCACIONES (Tarjetas)
+   ============================================ */
+.grid-locaciones { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; max-width: 1100px; margin: 0 auto; }
+.locacion-card { display: block; position: relative; height: 250px; border-radius: 8px; overflow: hidden; text-decoration: none; background-size: cover; background-position: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3); transition: transform 0.3s ease; }
+.locacion-card:hover { transform: translateY(-5px); }
+.locacion-overlay { position: absolute; bottom: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0) 100%); display: flex; align-items: flex-end; justify-content: center; padding: 20px; transition: background 0.3s ease; }
+.locacion-card:hover .locacion-overlay { background: linear-gradient(to top, rgba(184, 184, 192, 0.8) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0) 100%); } /* Hover en gris frío */
+.locacion-overlay h3 { color: #F0F4F8; font-size: 1.2rem; font-weight: 500; text-align: center; margin: 0; text-shadow: 1px 1px 3px rgba(0,0,0,0.8); }
+
+/* ============================================
+   NOSOTROS (Foto izquierda, texto derecha)
+   ============================================ */
+.nosotros-bloque { display: flex; align-items: center; justify-content: center; gap: 50px; max-width: 1100px; margin: 0 auto 50px auto; }
+.nosotros-imagen { flex: 0 0 45%; }
+.nosotros-imagen img { width: 100%; height: auto; border-radius: 8px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); display: block; }
+.nosotros-texto { flex: 1; }
+.nosotros-texto h1 { font-size: 2.5rem; color: #B8B8C0; margin-bottom: 20px; font-weight: 400; text-align: left; } /* Título en gris frío */
+.nosotros-texto p { color: #B8B8C0; font-size: 1.1rem; margin-bottom: 20px; line-height: 1.8; }
+.nosotros-texto .eslogan { margin-top: 30px; font-style: italic; color: #B8B8C0; font-size: 1.3rem; }
+.experiencia-box { 
+  background-color: #3A3A40; 
+  border-left: 5px solid #B8B8C0; /* Borde en gris frío */
+  max-width: 1100px; margin: 0 auto; padding: 40px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); text-align: center; 
+}
+.experiencia-box h2 { font-size: 2.5rem; color: #B8B8C0; margin-bottom: 10px; font-weight: 700; }
+.experiencia-box p { font-size: 1.1rem; color: #F0F4F8; line-height: 1.6; }
+
+/* ============================================
+   RESPONSIVE (Celular)
+   ============================================ */
+@media (max-width: 768px) {
+  .menu { flex-direction: column; gap: 15px; padding: 15px 20px; }
+  .menu-lista { flex-wrap: wrap; justify-content: center; gap: 15px; }
+  .hero h1 { font-size: 1.8rem; }
+  .pagina-completa, .servicio-pagina, .contacto, .inicio-fotos { padding: 100px 20px 60px; }
+  .servicio-pagina h1, .contacto h2 { font-size: 1.8rem; }
+  
+  .nosotros-bloque { flex-direction: column; gap: 30px; }
+  .nosotros-imagen { flex: 0 0 100%; width: 100%; }
+  .nosotros-texto h1 { text-align: left; }
+  .experiencia-box h2 { font-size: 2rem; }
+}
+/* ============================================
+   ESTILOS PARA PROMOCIONES
+   ============================================ */
+.contenedor-promos {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.promo-card {
+  display: flex;
+  background-color: #3A3A40;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.promo-card:hover {
+  transform: translateY(-5px);
+}
+
+.promo-imagen {
+  flex: 0 0 45%; /* La imagen ocupa el 45% de la tarjeta */
+}
+
+.promo-imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.promo-texto {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.promo-texto h2 {
+  font-size: 1.8rem;
+  color: #B8B8C0; /* El color que elegiste de acento */
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.promo-texto p {
+  color: #F0F4F8;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.promo-texto .promo-precio {
+  font-weight: bold;
+  color: #B8B8C0;
+  font-size: 1.1rem;
+  font-style: italic;
+}
+
+/* Adaptación para celulares: La imagen se pone arriba y el texto abajo */
+@media (max-width: 768px) {
+  .promo-card {
+    flex-direction: column;
+  }
+  .promo-imagen {
+    flex: 0 0 200px; /* Altura fija para la imagen en celular */
+  }
+  .promo-texto {
+    padding: 25px;
+  }
+}
